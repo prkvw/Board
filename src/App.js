@@ -2,14 +2,17 @@ import React, {useEffect} from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom' ;
 import {FiSettings} from 'react-icons/fi';
 import {TooltipComponent} from '@syncfusion/ej2-react-popups';
+
 import {Navbar, Footer, Sidebar, Themesettings} from './components';
-import {Ecommerce, Orders, Pyramid, Area, Employees, Stacked, Customers, Bar,Line,Calendar, Kanban, Pie} from './pages'
+import {Ecommerce, Orders, Pyramid, Area, Employees, Stacked, Customers, Bar,Line,Calendar, Kanban,ColorPicker, Editor, Pie} from './pages';
+import { useStateContext } from './contexts/ContextProvider';
 import './App.css'
 
 
 const App = () => {
-  const activeMenu = false;
-  
+  const {activeMenu}= useStateContext();
+  //const activeMenu = true;
+
   return (
     <div>
       <BrowserRouter>
@@ -48,6 +51,8 @@ const App = () => {
           {/* Apps */}
           <Route path="/calendar" element = {<Calendar/>} />
           <Route path="/kanban/" element = {<Kanban />} />
+          <Route path="/editor/" element = {<Editor />} />
+          <Route path="/ColorPicker/" element = {<ColorPicker />} />
      
           {/* Charts */}
           <Route path="/line" element = {<Line />} />
